@@ -22,8 +22,12 @@ const TaskCard = ({ task, onEdit, onDelete }) => (
     </div>
     <p>{task.description || 'No description provided.'}</p>
     <div className="task-card-footer">
-      <span>Priority: {task.priority}</span>
-      <span>Due: {formatDateDisplay(task.dueDate)}</span>
+      <span className="task-footer-item">
+        Priority: <span className={`priority-badge priority-${task.priority.toLowerCase()}`}>{task.priority}</span>
+      </span>
+      <span className="task-footer-item">
+        Due: <span className="due-date-badge">{formatDateDisplay(task.dueDate)}</span>
+      </span>
     </div>
   </article>
 );
